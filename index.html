@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen UI - Demo Vercel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        clinical: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        urban: ['"Space Grotesk"', 'sans-serif'],
+                        apple: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        apple: { bg: '#F5F5F7', surface: '#ffffff', text: '#1D1D1F', accent: '#0071E3' },
+                        clinical: { bg: '#F8FAFC', surface: '#ffffff', text: '#0F172A', accent: '#0284C7' },
+                        urban: { bg: '#0A0A0A', surface: '#141416', text: '#ffffff', accent: '#CCFF00' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* CSS Animaciones Personalizadas */
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 20s linear infinite;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-urban-bg text-urban-text font-apple selection:bg-urban-accent selection:text-black antialiased overflow-x-hidden">
+
+    <!-- APPLE-STYLE GLASSMORPHISM NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 glass-panel text-black">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="font-urban font-bold text-xl tracking-tighter">NXGN_</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#hero" class="hover:text-apple-accent transition-colors">Sistema</a>
+                <a href="#pricing" class="hover:text-apple-accent transition-colors">Precios</a>
+                <a href="#features" class="hover:text-apple-accent transition-colors">Arquitectura</a>
+            </div>
+            <a href="#pricing" class="bg-black text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform transform-gpu">
+                Iniciar
+            </a>
+        </div>
+    </nav>
+
+    <!-- URBAN BRUTALIST HERO WITH ANTI-LAG AURORA -->
+    <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
+        <!-- Anti-lag Aurora -->
+        <div class="absolute inset-0 z-0 isolate pointer-events-none transform-gpu" aria-hidden="true">
+            <div class="absolute top-[10%] left-[10%] h-[40vh] w-[30vw] rounded-full bg-cyan-600/40 mix-blend-screen blur-[100px] transform-gpu"></div>
+            <div class="absolute top-[30%] right-[10%] h-[50vh] w-[40vw] rounded-full bg-fuchsia-600/40 mix-blend-screen blur-[128px] transform-gpu"></div>
+            <div class="absolute -bottom-[10%] left-[20%] h-[40vh] w-[50vw] rounded-full bg-indigo-600/40 mix-blend-screen blur-[128px] transform-gpu"></div>
+            <!-- Ruido/Grain -->
+            <div class="absolute inset-0 opacity-20 mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]"></div>
+        </div>
+
+        <div class="relative z-10 text-center max-w-4xl px-6">
+            <div class="inline-flex items-center gap-2 rounded-full border border-urban-accent/30 bg-urban-accent/10 px-4 py-1.5 text-xs font-bold tracking-widest text-urban-accent backdrop-blur-md mb-8">
+                <span class="relative flex h-2 w-2">
+                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-urban-accent opacity-75"></span>
+                    <span class="relative inline-flex h-2 w-2 rounded-full bg-urban-accent"></span>
+                </span>
+                V 2.0 DEPLOYED
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-urban uppercase text-transparent bg-clip-text bg-gradient-to-br from-white to-white/40 mb-6 drop-shadow-lg">
+                Hiper<br><span class="text-white">Velocidad.</span>
+            </h1>
+            
+            <p class="text-zinc-400 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-10">
+                Interfaces construidas sin lag. Usando la aceleración de la GPU de tu tarjeta gráfica para auroras perfectas y cristal puro.
+            </p>
+
+            <a href="#pricing" class="inline-flex border-2 border-urban-accent bg-urban-surface text-urban-accent px-8 py-4 font-urban uppercase tracking-widest font-bold text-sm hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0_0_#CCFF00] transition-all duration-200">
+                Desplegar Arquitectura
+            </a>
+        </div>
+
+        <!-- Ticker Marquee Urban -->
+        <div class="absolute bottom-0 w-full border-y border-zinc-800 bg-black py-3 overflow-hidden z-20">
+            <div class="animate-ticker font-urban text-urban-accent text-sm tracking-widest uppercase flex gap-10">
+                <span>/// ZERO LAG</span>
+                <span>/// GPU ACCELERATED</span>
+                <span>/// GLASSMORPHISM</span>
+                <span>/// MINIMALIST SAAS</span>
+                <span>/// ZERO LAG</span>
+                <span>/// GPU ACCELERATED</span>
+                <span>/// GLASSMORPHISM</span>
+                <span>/// MINIMALIST SAAS</span>
+                <span>/// ZERO LAG</span>
+                <span>/// GPU ACCELERATED</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLINICAL / CLEAN MINIMALIST PRICING -->
+    <section id="pricing" class="py-32 bg-clinical-bg text-clinical-text">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-clinical font-bold tracking-tight mb-4 text-clinical-text">Tarifas Clínicas</h2>
+                <p class="text-clinical-text/60 font-apple">Transparencia absoluta. Sin sombras pesadas.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Plan 1 -->
+                <div class="bg-white rounded-[2rem] p-10 ring-1 ring-zinc-200 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.05)] hover:-translate-y-2 hover:shadow-[0_16px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 transform-gpu">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-400 font-clinical mb-6">Básico</h3>
+                    <div class="flex items-baseline text-6xl font-light tracking-tighter mb-4">
+                        $29<span class="text-xl font-medium text-zinc-400 ml-1">/mo</span>
+                    </div>
+                    <p class="text-zinc-500 mb-8 font-apple text-sm">Perfecto para empezar con velocidad.</p>
+                    <ul class="space-y-4 mb-10 text-sm font-medium">
+                        <li class="flex items-center gap-3"><span class="text-clinical-accent">✓</span> SSL Rápido</li>
+                        <li class="flex items-center gap-3"><span class="text-clinical-accent">✓</span> Dominio Personalizado</li>
+                    </ul>
+                    <button class="w-full bg-zinc-100 hover:bg-zinc-200 text-zinc-900 font-bold py-4 rounded-2xl transition-colors">Seleccionar</button>
+                </div>
+
+                <!-- Plan 2 (Apple Style Elevated) -->
+                <div class="bg-white rounded-[2rem] p-10 ring-1 ring-clinical-accent/20 shadow-[0_12px_40px_-12px_rgba(2,132,199,0.15)] relative overflow-hidden hover:-translate-y-2 transition-all duration-300 transform-gpu">
+                    <div class="absolute top-0 right-0 bg-clinical-accent text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-bl-xl">Popular</div>
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-clinical-accent font-clinical mb-6">Pro</h3>
+                    <div class="flex items-baseline text-6xl font-bold tracking-tighter mb-4 text-clinical-text">
+                        $99<span class="text-xl font-medium text-zinc-400 ml-1">/mo</span>
+                    </div>
+                    <p class="text-zinc-500 mb-8 font-apple text-sm">Potencia absoluta con cero latencia.</p>
+                    <ul class="space-y-4 mb-10 text-sm font-medium">
+                        <li class="flex items-center gap-3"><span class="text-clinical-accent">✓</span> Todo en Básico</li>
+                        <li class="flex items-center gap-3"><span class="text-clinical-accent">✓</span> Aceleración GPU</li>
+                        <li class="flex items-center gap-3"><span class="text-clinical-accent">✓</span> Componentes React</li>
+                    </ul>
+                    <button class="w-full bg-clinical-text hover:bg-black text-white font-bold py-4 rounded-2xl transition-all shadow-[0_4px_14px_0_rgba(0,0,0,0.2)]">Comenzar Ahora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
